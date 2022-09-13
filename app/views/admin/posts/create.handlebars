@@ -1,0 +1,54 @@
+    <div class="co-md-12 co-lg-12 mb-30">
+        <div class="box">
+            <div class="box-head">
+                <h4 class="title"> ایجاد مطلب </h4>
+            </div>
+            <div class="box-body">
+                <div class="row mbn-20">
+
+                    {{!-- form field --}}
+                    <form  action="/admin/posts/store" method="post">
+                        <div class="col-lg-20 col-12 mb-20">
+                        {{#if hasError}}
+                        <div class="alert alert-outline-secondary" role="alert">
+                            {{#each errors}}
+                            <span>{{this}}</span>
+                            {{/each}}                            
+                        </div>
+                        {{/if}}
+                        <div class="col-12 mb-30">
+                            <input type="text" name="title" placeholder="عنوان مطلب" id="" class="form-control">
+                        </div>
+                        <div class="col-12 mb-30">
+                            <input type="text" name="slug" placeholder="نامک مطلب" id="" class="form-control">
+                        </div>
+                        <div class="col-12 mb-30">
+                            <textarea class="form-control summernote" name="content" placeholder="محتوا مطلب" id="" ></textarea>
+                        </div>
+                        
+                        <div class="col-12 mb-30">
+                            <h6 class="mb-15">وضعیت مطلب</h6>
+
+                            <label for=""><input type="radio" name="status" id="" value="0" checked>پیش نویس</label>
+                            <label for=""><input type="radio" name="status" id="" value="1">در حال بازبینی</label>
+                            <label for=""><input type="radio" name="status" id="" value="2">منتشر شده</label>
+
+                        </div>
+                        <div class="col-12 mb15">
+                            <select name="author" class="form-control" id="">
+                                {{#each users}}
+                                <option value="{{this.id}}">{{this.full_name}}</option>
+                                {{/each}}
+                            </select>
+                        </div>
+                        <br>
+                        <div class="col-12 mb-30">
+                            <button type="submit" class="button button-primary"><span>ذخیره سازی</span></button>
+                        </div>
+                    </div>
+                    </form>
+
+                </div>
+            </div>
+        </div>
+    </div>

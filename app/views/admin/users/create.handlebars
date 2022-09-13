@@ -1,0 +1,54 @@
+    <div class="co-md-12 co-lg-12 mb-30">
+        <div class="box">
+            <div class="box-head">
+                <h4 class="title"> ایجاد کاربر </h4>
+            </div>
+            <div class="box-body">
+                <div class="row mbn-20">
+
+                    {{!-- form field --}}
+                        {{#if hasError}}
+                        <div class="alert alert-outline-secondary" role="alert">
+                            {{#each errors}}
+                            <span>{{this}}</span>
+                            {{/each}}                            
+                        </div>
+                        {{/if}}
+                    <form  action="/admin/users/store" method="post">
+                        <div class="col-lg-20 col-12 mb-20">
+                        <div class="col-12 mb-30">
+                            <input type="text" name="userName" placeholder="نام کاربری" id="" class="form-control">
+                        </div>
+                        <div class="col-12 mb-30">
+                            <input type="text" name="email" placeholder="ایمیل" id="" class="form-control">
+                        </div>
+                        <div class="col-12 mb-30">
+                            <input type="password" name="password" placeholder="گذرواژه" id="" class="form-control">
+                        </div>
+                        
+                        <div class="col-12 mb-30">
+                            <h6 class="mb-15">سمت کاربر</h6>
+
+                            <label for=""><input type="radio" name="role" id="" value="0" checked>مدیر</label>
+                            <label for=""><input type="radio" name="role" id="" value="1">نویسنده</label>
+                            <label for=""><input type="radio" name="role" id="" value="2">مدیر سئو</label>
+
+                        </div>
+                        <div class="col-12 mb15">
+                            <select name="author" class="form-control" id="">
+                                {{!-- {{#each users}}
+                                <option value="{{this.id}}">{{this.full_name}}</option>
+                                {{/each}} --}}
+                            </select>
+                        </div>
+                        <br>
+                        <div class="col-12 mb-30">
+                            <button type="submit" class="button button-primary"><span>ایجاد کردن</span></button>
+                        </div>
+                    </div>
+                    </form>
+
+                </div>
+            </div>
+        </div>
+    </div>

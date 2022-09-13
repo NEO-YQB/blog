@@ -1,0 +1,50 @@
+
+    <div class="co-md-12 co-lg-12 mb-30">
+        <div class="box">
+            <div class="box-head has-opration">
+                <h4 class="title"> لیست کاربران </h4>
+                <div class="oprations">
+                    <a href="users/create" class="button button-primary">
+                        <span><i class="zmdi zmdi-plus"></i>ایجاد کاربر جدید</span>
+                    </a>
+                </div>
+            </div>
+            <div class="box-body">
+                <table class="table">
+                    <theat class="theat-dark">
+                        <tbody class="co-tb-sp">
+                            <tr>
+                            <th>#</th>
+                            <th>نام</th>
+                            <th>ایمیل</th>
+                            <th>تاریخ ثبت نام</th>
+                            <th>سمت</th>
+                            <th>عملیات</th>
+                        </tr>
+                        </tbody>
+                    </theat>
+                    <tbody>
+                        {{#each users}}
+                        <tr>
+                        <td>{{this.ID}}</td>
+                        <td>
+                            <a href="#">{{this.full_name}}</a>
+                        </td>
+                        <td>{{this.email}}</td>
+                        <td>{{this.created_at_persian}}</td>
+                        <td>{{this.role}}</td>
+                        <td>
+                            <a href="/admin/users/edit/{{this.ID}}">
+                                <i class="fa fa-pencil"></i>
+                            </a>
+                            <a href="/admin/users/delete/{{this.ID}}">
+                                <i class="fa fa-remove"></i>
+                            </a>
+                        </td>  
+                        </tr>
+                        {{/each}}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
