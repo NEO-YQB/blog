@@ -1,8 +1,8 @@
 const usersModel = require('@models/user');
 const dateService = require('@services/dateService');
 const langService = require('@services/langService');
-const validators = require('@validators/users');
-const middleware=
+// const validators = require('@validators/users');
+
 
 
 
@@ -14,9 +14,8 @@ exports.index = async (req, res) => {
         return user;
     })
 
-    res.render('admin/users/index', {
-        layout: 'layout',
-        users: peresntedPosts
+    res.adminRender('admin/users/index', {
+        users
     });
 
 };
@@ -24,7 +23,6 @@ exports.index = async (req, res) => {
 exports.new = async (req, res) => {
     const users = await usersModel.findAll(['ID', 'full_name']);
     res.render('admin/users/create', {
-        layout: 'layout',
         users
     })
 };
@@ -38,17 +36,6 @@ exports.store = async (req, res) => {
         password: req.body.password,
         role: req.body.role,
     };
-    const errors = validators.create(userData);
-
-    if (errors.length > 0) {
-        const users = await usersModel.findAll(['id', 'full_name']);
-        return res.render('admin/users/create', {
-            layout: 'layout',
-            users,
-            errors,
-            hasError: errors.length > 0,
-        })
-    }
     const insertId = await usersModel.create(userData);
     if (insertId) {
         req.flash('success','کاربر جدید با موفقیت اضافه شد');
@@ -72,11 +59,7 @@ exports.edit = async (req, res) => {
     }
     const user = await usersModel.find(userID);
     const users = await usersModel.findAll(['id', 'full_name']);
-    res.render('admin/users/edit', {
-        layout: 'layout',
-        users,
-        user
-    })
+    res.adminRender('admin/users/edit',{users})
 }
 
 exports.update = async (req, res) => {
@@ -90,7 +73,6 @@ exports.update = async (req, res) => {
         password: req.body.password,
         role: req.body.role,
     };
-    const errors = validators.create(userData);
     const result = await usersModel.update(userID,userData)
-    res.redirect('/admin/users')
+    return res.redirect('/admin/users')
 }
