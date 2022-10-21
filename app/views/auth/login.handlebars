@@ -11,23 +11,23 @@
             <div class="login-register-form">
                 {{#if hasError}}
                 <div class="alert alert-outline-secondary">
-                    {{#each error}}
+                    {{#each errors}}
                     <p>{{this}}</p>
                     {{/each}}
                 </div>
                 {{/if}}
-                <form action="#">
+                <form action="/auth/login" method="POST">
                     <div class="row">
-                        <div class="col-12 mb-20"><input class="form-control" type="text"
+                        <div class="col-12 mb-20"><input name="email" class="form-control" type="email"
                                 placeholder="ایمیل"></div>
-                        <div class="col-12 mb-20"><input class="form-control" type="password" placeholder="رمز عبور">
+                        <div class="col-12 mb-20"><input name="password" class="form-control" type="password" placeholder="رمز عبور">
                         </div>
-                        <div class="col-12 mb-20"><label for="remember" class="adomx-checkbox-2"><input id="remember"
+                        <div class="col-12 mb-20"><label for="remember" class="adomx-checkbox-2"><input name="remember_me" id="remember"
                                     type="checkbox"><i class="icon"></i>مرا به خاطر داشته باش.</label></div>
                         <div class="col-12">
                             <div class="row justify-content-between">
                                 <div class="col-auto mb-15"><a href="#">فراموشی رمز عبور؟</a></div>
-                                <div class="col-auto mb-15">آیا حساب کاربری ندارید؟ <a href="register.html">هم اکنون
+                                <div class="col-auto mb-15">آیا حساب کاربری ندارید؟ <a href="/auth/register">هم اکنون
                                         ایجاد کنید.</a></div>
                             </div>
                         </div>

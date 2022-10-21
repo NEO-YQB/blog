@@ -22,7 +22,7 @@ exports.index = async (req, res) => {
 
 exports.new = async (req, res) => {
     const users = await usersModel.findAll(['ID', 'full_name']);
-    res.render('admin/users/create', {
+    res.adminRender('admin/users/create', {
         users
     })
 };

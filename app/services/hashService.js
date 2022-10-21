@@ -1,9 +1,9 @@
-const bcrypt=require('bcrypt');
+const bcrypt = require('bcrypt');
 
-exports.hashPassword=plainPassword=>{
-    return bcrypt.hashSync(plainPassword,10);
+exports.hashPassword = plainPassword => {
+    return bcrypt.hashSync(plainPassword, 10);
 };
 
-exports.comparePassword=(plainPassword,hashedPassword)=>{
-    return bcrypt.compareSync(plainPassword,hashedPassword)
+exports.comparePassword = (plainPassword, hashedPassword) => {
+    return bcrypt.compareSync(plainPassword, hashedPassword)
 }

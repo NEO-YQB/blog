@@ -9,18 +9,18 @@
             </div>
 
             <div class="login-register-form">
-                <form action="#">
+                <form action="/auth/register" method="post">
                     <div class="row">
 
-                        <div class="col-12 mb-20"><input class="form-control" type="text"
-                                placeholder="نام کاربری / ایمیل"></div>
-                        <div class="col-12 mb-20"><input class="form-control" type="password" placeholder="رمز عبور">
+                        <div class="col-12 mb-20"><input name="email" class="form-control" type="email"
+                                placeholder="ایمیل"></div>
+                        <div class="col-12 mb-20"><input name="password" class="form-control" type="password" placeholder="رمز عبور">
                         </div>
-                        <div class="col-12 mb-20"><input class="form-control" type="password"
+                        <div class="col-12 mb-20"><input name="password_confirmation" class="form-control" type="password"
                                 placeholder="تایید رمز عبور"></div>
                         <div class="col-12">
                             <div class="row justify-content-between">
-                                <div class="col-auto mb-15">در حال حاضر حساب کاربری دارید؟ <a href="login.html">هم اکنون
+                                <div class="col-auto mb-15">در حال حاضر حساب کاربری دارید؟ <a href="/auth/login">هم اکنون
                                         وارد شوید.</a></div>
                             </div>
                         </div>

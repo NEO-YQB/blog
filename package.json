@@ -16,7 +16,8 @@
     "@routes": "app/routes",
     "@services": "app/services",
     "@db": "database",
-    "@validators": "app/validators"
+    "@validators": "app/validators",
+    "@middlewares":"app/middlewares"
   },
   "dependencies": {
     "bcrypt": "^5.0.1",

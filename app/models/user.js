@@ -9,6 +9,16 @@ exports.findAll = async (columns = []) => {
     `)
     return rows;
 }
+
+exports.findByEmail = async (email) => {
+    const [rows] = await db.query(`
+    select *
+    from users
+    where email=?
+    limit 1
+    `, [email])
+    return rows.length === 1 ? rows[0] : null;
+}
 exports.find = async (userID) => {
     const [rows, fields] = await db.query(`
     select *
